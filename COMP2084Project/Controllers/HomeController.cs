@@ -18,7 +18,15 @@ namespace COMP2084Project.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AddGenre()
+        {
+            return View();
+        }
+        public IActionResult AddList()
+        {
+            return View();
+        }
+        public IActionResult AddRating()
         {
             return View();
         }
