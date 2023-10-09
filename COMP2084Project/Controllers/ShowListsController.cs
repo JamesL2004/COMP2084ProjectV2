@@ -23,7 +23,7 @@ namespace COMP2084Project.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.ShowList_1 != null ? 
-                          View(await _context.ShowList_1.ToListAsync()) :
+                          View(await _context.ShowList_1.ToListAsync()) : 
                           Problem("Entity set 'ApplicationDbContext.ShowList_1'  is null.");
         }
 
