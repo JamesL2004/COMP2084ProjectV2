@@ -1,0 +1,30 @@
+﻿@model COMP2084Project.Models.AudioList
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AudioList</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AudioListName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AudioListName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AudioListDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AudioListDescription)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.AudioListId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

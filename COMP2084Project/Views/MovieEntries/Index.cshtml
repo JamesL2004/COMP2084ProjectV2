@@ -1,0 +1,47 @@
+﻿@model IEnumerable<COMP2084Project.Models.MovieEntry>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieLists)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieLists.MovieListId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MovieEntryId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MovieEntryId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MovieEntryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
