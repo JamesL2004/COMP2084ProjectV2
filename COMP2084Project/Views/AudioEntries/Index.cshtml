@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<COMP2084Project.Models.AudioEntry>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Previous Entries";
 }
 
-<h1>Index</h1>
+<h1>Your Previous Entries</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Albums.ArtistName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AudioLists.AudioListId)
+                @Html.DisplayFor(modelItem => item.AudioLists.AudioListName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.AudioEntryId">Edit</a> |

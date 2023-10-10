@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<COMP2084Project.Models.ShowEntry>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Previous Entries";
 }
 
-<h1>Index</h1>
+<h1>Your Previous Entries</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -31,10 +31,10 @@
                 @Html.DisplayFor(modelItem => item.position)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Shows.ShowCreator)
+                @Html.DisplayFor(modelItem => item.Shows.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShowLists.ShowListId)
+                @Html.DisplayFor(modelItem => item.ShowLists.ShowListName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ShowEntryId">Edit</a> |

@@ -1,12 +1,12 @@
 ﻿@model COMP2084Project.Models.MovieEntry
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create a New Entry";
 }
 
-<h1>Create</h1>
+<h1>Create a New Entry</h1>
 
-<h4>MovieEntry</h4>
+<h4>Create</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,11 +18,11 @@
                 <span asp-validation-for="position" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MovieId" class="control-label"></label>
+                <label asp-for="MovieId" class="control-label">Title</label>
                 <select asp-for="MovieId" class ="form-control" asp-items="ViewBag.MovieId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="MovieListId" class="control-label"></label>
+                <label asp-for="MovieListId" class="control-label">List Name</label>
                 <select asp-for="MovieListId" class ="form-control" asp-items="ViewBag.MovieListId"></select>
             </div>
             <div class="form-group">

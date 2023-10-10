@@ -48,7 +48,7 @@ namespace COMP2084Project.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
-            ViewData["ScreenGenreId"] = new SelectList(_context.ScreenGenres, "ScreenGenreId", "ScreenGenreId");
+            ViewData["ScreenGenreId"] = new SelectList(_context.ScreenGenres, "ScreenGenreId", "Name");
             return View();
         }
 
@@ -82,7 +82,7 @@ namespace COMP2084Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["ScreenGenreId"] = new SelectList(_context.ScreenGenres, "ScreenGenreId", "ScreenGenreId", movie.ScreenGenreId);
+            ViewData["ScreenGenreId"] = new SelectList(_context.ScreenGenres, "ScreenGenreId", "Name", movie.ScreenGenreId);
             return View(movie);
         }
 

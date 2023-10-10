@@ -1,12 +1,12 @@
 ﻿@model COMP2084Project.Models.MovieEntry
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit this Entry";
 }
 
-<h1>Edit</h1>
+<h1>Edit this Entry</h1>
 
-<h4>MovieEntry</h4>
+<h4>Edit</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,12 +19,12 @@
                 <span asp-validation-for="position" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MovieId" class="control-label"></label>
+                <label asp-for="MovieId" class="control-label">Title</label>
                 <select asp-for="MovieId" class="form-control" asp-items="ViewBag.MovieId"></select>
                 <span asp-validation-for="MovieId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MovieListId" class="control-label"></label>
+                <label asp-for="MovieListId" class="control-label">List Name</label>
                 <select asp-for="MovieListId" class="form-control" asp-items="ViewBag.MovieListId"></select>
                 <span asp-validation-for="MovieListId" class="text-danger"></span>
             </div>

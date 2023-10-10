@@ -1,12 +1,12 @@
 ﻿@model COMP2084Project.Models.Album
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add new Album";
 }
 
-<h1>Create</h1>
+<h1>Add a new Album</h1>
 
-<h4>Album</h4>
+<h4>Create</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="review" class="control-label"></label>
-                <input asp-for="review" class="form-control" />
+                <textarea asp-for="review" class="form-control"></textarea>
                 <span asp-validation-for="review" class="text-danger"></span>
             </div>
             <div class="form-group">

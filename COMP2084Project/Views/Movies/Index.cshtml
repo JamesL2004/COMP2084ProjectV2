@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<COMP2084Project.Models.Movie>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Reviews";
 }
 
-<h1>Index</h1>
+<h1>Your Movie Reviews</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.review)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ScreenGenre.ScreenGenreId)
+                @Html.DisplayFor(modelItem => item.ScreenGenre.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a> |

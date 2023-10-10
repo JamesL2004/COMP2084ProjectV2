@@ -48,7 +48,7 @@ namespace COMP2084Project.Controllers
         // GET: Albums/Create
         public IActionResult Create()
         {
-            ViewData["AudioGenreId"] = new SelectList(_context.AudioGenres, "AudioGenreId", "AudioGenreId");
+            ViewData["AudioGenreId"] = new SelectList(_context.AudioGenres, "AudioGenreId", "Name");
             return View();
         }
 
@@ -82,7 +82,7 @@ namespace COMP2084Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["AudioGenreId"] = new SelectList(_context.AudioGenres, "AudioGenreId", "AudioGenreId", album.AudioGenreId);
+            ViewData["AudioGenreId"] = new SelectList(_context.AudioGenres, "AudioGenreId", "Name", album.AudioGenreId);
             return View(album);
         }
 

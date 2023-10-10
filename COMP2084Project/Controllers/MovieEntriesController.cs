@@ -49,8 +49,8 @@ namespace COMP2084Project.Controllers
         // GET: MovieEntries/Create
         public IActionResult Create()
         {
-            ViewData["MovieId"] = new SelectList(_context.Movies, "MovieId", "Director");
-            ViewData["MovieListId"] = new SelectList(_context.Set<MovieList>(), "MovieListId", "MovieListId");
+            ViewData["MovieId"] = new SelectList(_context.Movies, "MovieId", "Title");
+            ViewData["MovieListId"] = new SelectList(_context.Set<MovieList>(), "MovieListId", "MovieListName");
             return View();
         }
 
@@ -85,8 +85,8 @@ namespace COMP2084Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["MovieId"] = new SelectList(_context.Movies, "MovieId", "Director", movieEntry.MovieId);
-            ViewData["MovieListId"] = new SelectList(_context.Set<MovieList>(), "MovieListId", "MovieListId", movieEntry.MovieListId);
+            ViewData["MovieId"] = new SelectList(_context.Movies, "MovieId", "Title", movieEntry.MovieId);
+            ViewData["MovieListId"] = new SelectList(_context.Set<MovieList>(), "MovieListId", "MovieListName", movieEntry.MovieListId);
             return View(movieEntry);
         }
 

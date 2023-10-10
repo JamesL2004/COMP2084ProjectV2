@@ -49,8 +49,8 @@ namespace COMP2084Project.Controllers
         // GET: ShowEntries/Create
         public IActionResult Create()
         {
-            ViewData["ShowListId"] = new SelectList(_context.Set<ShowList>(), "ShowListId", "ShowListId");
-            ViewData["ShowId"] = new SelectList(_context.Shows, "ShowId", "ShowCreator");
+            ViewData["ShowListId"] = new SelectList(_context.Set<ShowList>(), "ShowListId", "ShowListName");
+            ViewData["ShowId"] = new SelectList(_context.Shows, "ShowId", "Title");
             return View();
         }
 
@@ -85,8 +85,8 @@ namespace COMP2084Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["ShowListId"] = new SelectList(_context.Set<ShowList>(), "ShowListId", "ShowListId", showEntry.ShowListId);
-            ViewData["ShowId"] = new SelectList(_context.Shows, "ShowId", "ShowCreator", showEntry.ShowId);
+            ViewData["ShowListId"] = new SelectList(_context.Set<ShowList>(), "ShowListId", "ShowListName", showEntry.ShowListId);
+            ViewData["ShowId"] = new SelectList(_context.Shows, "ShowId", "Title", showEntry.ShowId);
             return View(showEntry);
         }
 

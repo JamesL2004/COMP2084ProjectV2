@@ -49,8 +49,8 @@ namespace COMP2084Project.Controllers
         // GET: AudioEntries/Create
         public IActionResult Create()
         {
-            ViewData["AlbumId"] = new SelectList(_context.Albums, "AlbumId", "ArtistName");
-            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListId");
+            ViewData["AlbumId"] = new SelectList(_context.Albums, "AlbumId", "Title");
+            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListName");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace COMP2084Project.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AlbumId"] = new SelectList(_context.Albums, "AlbumId", "ArtistName", audioEntry.AlbumId);
-            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListId", audioEntry.AudioListId);
+            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListName", audioEntry.AudioListId);
             return View(audioEntry);
         }
 
@@ -85,8 +85,8 @@ namespace COMP2084Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["AlbumId"] = new SelectList(_context.Albums, "AlbumId", "ArtistName", audioEntry.AlbumId);
-            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListId", audioEntry.AudioListId);
+            ViewData["AlbumId"] = new SelectList(_context.Albums, "AlbumId", "Title", audioEntry.AlbumId);
+            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListName", audioEntry.AudioListId);
             return View(audioEntry);
         }
 
@@ -122,8 +122,8 @@ namespace COMP2084Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlbumId"] = new SelectList(_context.Albums, "AlbumId", "ArtistName", audioEntry.AlbumId);
-            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListId", audioEntry.AudioListId);
+            ViewData["AlbumId"] = new SelectList(_context.Albums, "AlbumId", "Title", audioEntry.AlbumId);
+            ViewData["AudioListId"] = new SelectList(_context.Set<AudioList>(), "AudioListId", "AudioListName", audioEntry.AudioListId);
             return View(audioEntry);
         }
 
