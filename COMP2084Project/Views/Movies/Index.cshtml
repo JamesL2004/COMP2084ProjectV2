@@ -6,9 +6,13 @@
 
 <h1>Your Movie Reviews</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -55,9 +59,13 @@
                 @Html.DisplayFor(modelItem => item.ScreenGenre.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MovieId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MovieId">Delete</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.MovieId">Delete</a>
+                    }
+                <a asp-action="Details" asp-route-id="@item.MovieId">Details</a>
+                
             </td>
         </tr>
 }

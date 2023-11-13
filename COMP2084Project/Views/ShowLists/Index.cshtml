@@ -6,8 +6,14 @@
 
 <h1>Create a New TV Show List</h1>
 
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+}
 <p>
-    <a asp-action="Create">Create New</a>
     <a asp-controller="ShowEntries" asp-action="Index">View Entries</a>
 </p>
 <table class="table">
@@ -32,9 +38,13 @@
                 @Html.DisplayFor(modelItem => item.ShowListDescription)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ShowListId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ShowListId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ShowListId">Delete</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ShowListId">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ShowListId">Delete</a>
+                    }
+                <a asp-action="Details" asp-route-id="@item.ShowListId">Details</a>
+                
             </td>
         </tr>
 }

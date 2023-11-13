@@ -6,9 +6,13 @@
 
 <h1>Your Previous Entries</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+   <p>
+        <a asp-action="Create">Create New</a>
+    </p> 
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -37,9 +41,13 @@
                 @Html.DisplayFor(modelItem => item.ShowLists.ShowListName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ShowEntryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ShowEntryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ShowEntryId">Delete</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ShowEntryId">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ShowEntryId">Delete</a>
+                    }
+                <a asp-action="Details" asp-route-id="@item.ShowEntryId">Details</a>
+                
             </td>
         </tr>
 }

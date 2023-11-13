@@ -6,9 +6,13 @@
 
 <h1>Add a new Music Genre</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -25,9 +29,14 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AudioGenreId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AudioGenreId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AudioGenreId">Delete</a>
+                    @if (User.Identity.IsAuthenticated)
+                    { 
+                        <a asp-action="Edit" asp-route-id="@item.AudioGenreId">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.AudioGenreId">Delete</a>
+                    }
+                    
+                <a asp-action="Details" asp-route-id="@item.AudioGenreId">Details</a>
+                
             </td>
         </tr>
 }

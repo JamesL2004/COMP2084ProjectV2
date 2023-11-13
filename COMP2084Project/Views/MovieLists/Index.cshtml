@@ -6,8 +6,13 @@
 
 <h1>Your Movie Lists</h1>
 
-<p>
+@if (User.Identity.IsAuthenticated)
+{
+   <p>
     <a asp-action="Create">Create New</a>
+    </p>
+}
+<p>
     <a asp-controller="MovieEntries" asp-action="Index">View Entries</a>
 </p>
 <table class="table">
@@ -32,9 +37,13 @@
                 @Html.DisplayFor(modelItem => item.MovieListDescription)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MovieListId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MovieListId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MovieListId">Delete</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.MovieListId">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.MovieListId">Delete</a>
+                    }
+                <a asp-action="Details" asp-route-id="@item.MovieListId">Details</a>
+                
             </td>
         </tr>
 }

@@ -6,10 +6,17 @@
 
 <h1>Your Album Lists</h1>
 
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+        
+    </p>
+}
 <p>
-    <a asp-action="Create">Create New</a>
     <a asp-controller="AudioEntries" asp-action="Index">View Entries</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -32,9 +39,13 @@
                 @Html.DisplayFor(modelItem => item.AudioListDescription)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AudioListId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AudioListId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AudioListId">Delete</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.AudioListId">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.AudioListId">Delete</a>
+                    }
+                <a asp-action="Details" asp-route-id="@item.AudioListId">Details</a>
+                
             </td>
         </tr>
 }
