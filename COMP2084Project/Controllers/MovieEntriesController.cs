@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using COMP2084Project.Data;
 using COMP2084Project.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace COMP2084Project.Controllers
 {
+    [Authorize]
     public class MovieEntriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,6 +22,7 @@ namespace COMP2084Project.Controllers
         }
 
         // GET: MovieEntries
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.MovieEntry_1.Include(m => m.Movie).Include(m => m.MovieLists);
@@ -27,6 +30,7 @@ namespace COMP2084Project.Controllers
         }
 
         // GET: MovieEntries/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.MovieEntry_1 == null)
