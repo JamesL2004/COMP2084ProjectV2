@@ -78,6 +78,16 @@ namespace COMP2084ProjectTesting
             Assert.AreEqual(_context.AudioGenres.Count(), initialCount - 1);
         }
         [TestMethod]
+        public void DeleteConfirmedNonExistentAudioGenreNoChange()
+        {
+            var initialCount = _context.AudioGenres.Count();
+
+            var result = controller.DeleteConfirmed(999).Result;
+            _context.SaveChanges();
+
+            Assert.AreEqual(_context.AudioGenres.Count(), initialCount);
+        }
+        [TestMethod]
         public void DeleteConfirmedValidAudioGenreReturnsIndex()
         {
             var result = (RedirectToActionResult)controller.DeleteConfirmed(505).Result;
