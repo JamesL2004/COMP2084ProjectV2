@@ -25,7 +25,7 @@ namespace COMP2084Project.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Shows.Include(s => s.ScreenGenre);
+            var applicationDbContext = _context.Shows.Include(s => s.ScreenGenre).OrderBy(s => s.Title);
             return View(await applicationDbContext.ToListAsync());
         }
 

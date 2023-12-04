@@ -127,17 +127,17 @@ namespace COMP2084Project.Controllers
         {
             if (id == null || _context.AudioGenres == null)
             {
-                return NotFound();
+                return View("Error");
             }
 
             var audioGenre = await _context.AudioGenres
                 .FirstOrDefaultAsync(m => m.AudioGenreId == id);
             if (audioGenre == null)
             {
-                return NotFound();
+                return View("Error");
             }
 
-            return View(audioGenre);
+            return View("Delete", audioGenre);
         }
 
         // POST: AudioGenres/Delete/5
